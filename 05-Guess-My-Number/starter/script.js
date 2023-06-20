@@ -1,4 +1,9 @@
 'use strict';
+
+/**
+ * piccolo programma di esericizio in cui bisogna indovinare un numero gernerato casualemtne !
+ */
+
 const maxNum = 21;
 let actualNum = getNumber();
 let highScore = 0;

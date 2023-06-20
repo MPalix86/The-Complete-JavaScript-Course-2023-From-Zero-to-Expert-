@@ -1,9 +1,10 @@
 "use strict";
+
 const friends = ["mirco", "ba", "lore"];
 console.log(friends[2]);
 
 // notiamo che anche se l'array è dichiarato come const il codice sotto
-// funziona ugualmente! lo vederemo più in dettaglio dopo questa cosa
+// funziona ugualmente! la vederemo più in dettaglio dopo questa cosa
 // per ora basta sapere che questo avviene perche solo i valori primitivi sono immutabili
 friends[2] = "marco";
 console.log(friends[2]);
@@ -11,6 +12,9 @@ console.log(friends[2]);
 // quello che non possiamo fare è sostituire l'intero array
 // friends = ['bob','mark','giovanni']; // questo non posso farlo
 
+/**
+ * dichiariamo un oggetto
+ */
 const user = {
   nome: "mirco",
   congome: "palese",
@@ -25,23 +29,27 @@ const user = {
 console.log(user.nome); // in questa accediamo alla proprieta e non possiamo fare altrimenti
 console.log(user["nome"]); // in questa possiamo non scrivere direttamente la stringa del campo che volgio ma la posso calcolare tramite qualche operazione
 
+/**
+ * ad esempio
+ */
 function getNome() {
   return "nome";
 }
+
 console.log(user[getNome()]);
 
-// possiamo anche chiamare i metodi definiti all'interno dell'oggetto
+// con la notazione [] possiamo anche chiamare i metodi definiti all'interno dell'oggetto
 console.log(user.calcAge(1995));
 console.log(user["calcAge"](1995));
 
-// notiamo tuttavia che l'anno di nascita  è presente all'interno dell'oggetto e lo stiamo semplicemente ripetendo
-// è qui dobbiamo usare this !
+// notiamo tuttavia che l'anno di nascita  è presente all'interno dell'oggetto
+// dobbiamo usare this !
 
 const user1 = {
   nome: "mirco",
   congome: "palese",
   annoNascita: 1995,
-  // ora capiamo anche ameglioa cosa servono le functions expression
+  // ora capiamo anche meglioa cosa servono le functions expression
   calcAge: function () {
     console.log(this);
     return 2023 - this.annoNascita;

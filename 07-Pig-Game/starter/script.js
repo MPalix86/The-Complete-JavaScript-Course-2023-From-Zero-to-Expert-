@@ -1,3 +1,7 @@
+/**
+ * piccolo gioco nel browser per esercitarsi !
+ * aprire la pagina html in chrome per vedere
+ */
 'use strict';
 // player0
 const player0Panel = document.querySelector('.player--0');

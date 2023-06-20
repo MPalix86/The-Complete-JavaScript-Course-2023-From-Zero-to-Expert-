@@ -8,8 +8,13 @@ function calcAge1(birthDate) {
 const age1 = calcAge1(1995);
 
 // FUNCTION EXPRESSION
-// è sostanzialmente equivalente a quello scritto sopra
-// l'unica (forse) differenza è che queste non possono essere usate prima di averle definite
+/**
+ * in js le funzioni sono trattate e sattamente come oggeti. quindi posso
+ * salvare una funzione dentro una varibili.
+ *
+ * dichiarare una funzione cosi è sostanzialmente equivalente a quello scritto sopra
+ * l'unica differenza è che queste non possono essere usate prima di averle definite
+ */
 const calcAge2 = function (birthDate) {
   return 2023 - birthDate;
 };

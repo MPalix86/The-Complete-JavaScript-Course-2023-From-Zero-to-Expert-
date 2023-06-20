@@ -1,3 +1,7 @@
+/**
+ * codice di esempio sull'uso dei modal
+ */
+
 'use strict';
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
