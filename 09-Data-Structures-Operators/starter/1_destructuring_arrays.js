@@ -45,12 +45,11 @@ const restaurant = {
 // i valori di un array o un oggetto in valori separati
 const arr = [2, 3, 4, 5];
 
-// questo che sembra un array in realtà è il destructuring, tant'è vero che dichiariamo
-// le variabili come const
+// questo che sembra un array in realtà è il destructuring,
 const [x, y, z] = arr;
-console.log(x, y, z);
+console.log(x, y, z); // 2 3 4
 
-// posso destrutturare solo parzialmente e lasciando spazi vuoti salto elementi
+// posso destrutturare anche solo parzialmente e lasciando spazi vuoti salto elementi
 let [first, , second] = restaurant.categories;
 console.log(first, second);
 
@@ -81,7 +80,7 @@ console.log(r, j, k);
 
 // se non sappiamo il numero di elementi di un array possiamo destrutturarlo ugualmente
 // const [p,t,l] = [8,5]
-// console.log(p,y,l) // l sara semplicemente undefinedì
+// console.log(p,y,l) // l sara semplicemente undefined
 // la cosa interessante è che posso anche assegnare dei valori di default nel caso alle variabili
 const [p = 1, t = 2, l = 3] = [8, 5];
 console.log(p, t, l);

@@ -43,15 +43,17 @@ const restaurant = {
 // per destrutturare gli oggetti usiamo le parentesi graffe e non le quadre, tutto quello che
 // dobbiamo fare è fornire i nomi di variabile esattamente uguali alle proprieta che vogliamo destrutturare
 
+// const { name, location } = restaurant;
+// console.log(name, location);
+
 // questo dal punto di vista logico e sintattico dovrebbe funzionare ! stiamo destrutturando
 // un oggetto. Tuttavia, mi da errore. Questo perche se andiamo ad analizzare l'oggetto this globale
 // scopriamop che ha le seguenti proprietà
 // {window: Window, self : Window, document:document, name = '',location = Location}
 // e probabilemtne sono dichiarate come const quindi quello che sto facendo di fatto è provare a
-// riassegnare e quindi il compilatore da errore !
+// riassegnare quelle variabili e quindi il compilatore da errore !
+
 console.log(this);
-// const { name, location } = restaurant;
-// console.log(name, location);
 
 const restaurant1 = {
   _name: 'Classico Italiano',
@@ -99,7 +101,7 @@ const { name: restaurantName, location: restaurantLocation } = restaurant; // ch
 console.log(restaurantLocation, restaurantName);
 
 // possiamo anche dare i valori di default nel caso la proprieta non dovesse esistere
-// poiche menu non c'è verra restituito il valore di default
+// poiche menu non c'è nell'oggetto verra restituito il valore di default
 const { menu = [], starterMenu: starters = [] } = restaurant;
 console.log(menu, starters);
 
@@ -110,16 +112,18 @@ let b = 222;
 const obj = { a: 23, b: 49, c: 56 };
 // le variabili a e b sono gia state assegnate quindi non posso fare const/let {a,b} = obj
 // in quanto le variabili verrebbero ridichiarate causando errore.
+
 // la cosa piu logica che mi viene da fare è {a,b} = obj
 // tuttavia anche in questo caso js da errore e questo perche quando qualcosa inizia con {}
-// js si aspetta un blocco di codice, e ovviamente non possiamo assegnare dei valori ad un blocco di codice
-// il trick che usa è mettere tutto tra parentesi tonde
+// per js è un blocco di codice, e ovviamente non possiamo assegnare dei valori ad un blocco di codice
+// il trick che si usa è mettere tutto tra parentesi tonde
 ({ a, b } = obj);
 console.log(a, b);
 
 // vediamo ora come funzionana il destructuring con i nested object
 const oh = restaurant.openingHours;
 // come per il destructuring degli array mi definisco un nested object
+// si fa come per gli array
 // prettier-ignore
 const {fri: { open, close }} = oh;
 console.log(open, close);

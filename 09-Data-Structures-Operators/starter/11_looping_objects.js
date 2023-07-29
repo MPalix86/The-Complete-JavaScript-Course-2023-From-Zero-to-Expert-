@@ -2,10 +2,10 @@
 /**
  * abbiamo visto un modo per iterare sugli array
  * ora vediamo come farlo (in maniera indiretta perche non sono iterable) sugli oggetti.
- * prima di tutto possiamo iterare
+ * prima di tutto possiamo iterare :
  * 1) tra le proprietà di un ogetto
  * 2) tra i valori di un oggetto
- * 3) o tutti insieme !
+ * 3) o tutto insieme !
  */
 
 const settimana = {
@@ -41,11 +41,13 @@ for (const el of Object.keys(settimana)) {
 
 /**
  * ITERAZIONE SUI VALORI DELLE PROPRIETA
+ * uguale a prima ma con Object.values()
  */
 for (const el of Object.values(settimana)) console.log(el);
 
 /**
  * ITERAZIONE CHIAVI + VALORI
+ * uguale a prima ma con Object.entries()
  */
 console.log(Object.entries(settimana));
 for (const el of Object.entries(settimana)) console.log(el);

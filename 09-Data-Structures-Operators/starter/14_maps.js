@@ -1,9 +1,10 @@
 'use strict';
+
 /**
- * una mappa è una struttura dati che serve a mappare chiavi con valori,
+ * una mappa è una struttura dati che serve a mappare (appunto) chiavi con valori,
  * proprio come gli oggetti, l'unica differenza è che nella mappa le chiavi possono
  * avere qualsiasi tipo, mentre negli oggetti possono essere solo stringhe.
- * creiamo la mappa con il costruttore e poi aggiungiamo elementi con il metodo set
+ * creiamo la mappa con il costruttore e poi aggiungiamo elementi con il metodo "set"
  */
 
 const rest = new Map();
@@ -13,22 +14,23 @@ rest.set('nome', 'via di guincer');
 console.log(rest);
 
 // i set si possono concatenare
-
 // prettier-ignore
 rest
 .set(1, 'test')
 .set(2, 'test2')
 .set(3,'test3')
 
+// eliminare elemento
 rest.delete(2);
 
 rest.set([1, 2], 'anche gli array possono essere chiavi');
 /**
- * ovviamente assegnando in questo modo un array come chiave il valore non sara
+ * ovviamente assegnando in questo modo un array come chiave, il valore non sara
  * piu recuperabile perche se provassi a fare rest.get([1,2]) per recuperare il valore
- * non funzionerebbe dato che verrebbe un nuovo array nell'heap con indirizzo diverso !
+ * non funzionerebbe dato che verrebbe creato un nuovo array nell'heap con indirizzo diverso !
  * per far si che funzioni bisogna prima salvare l'array
  */
+console.log(rest.get([1, 2]));
 const arr = [1, 2];
 rest.set(arr, 'testArr');
 
@@ -37,7 +39,7 @@ console.log(rest.get(arr));
 /**
  * l'usare qualsiasi cosa come chiave ci puo tornare molto utile specialmente
  * quando lavoriamo con l'interfaccia grafica, infatti gli elementi del dom non sono
- * altro che oggetti che con le mappe possiamo assegnare come chiavi di qualche valore.
+ * altro che oggetti, che con le mappe possiamo assegnare come chiavi di qualche valore.
  *
  * Oltre al set esiste un altro modi di popolare una nuova mappa che è piu comodo.
  * in pratica si passa nel costruttore un'array di array dove in ogni array ci sono 2 valori,
@@ -45,7 +47,7 @@ console.log(rest.get(arr));
  *
  * ATTENZIONE : se si mette in più oggetti la stessa chieave l'ultimo oggetto inserito
  * in ordine sara l'unico ad essere visualizzato
- * questo perche il riferimento in memoria relatico a quella chiave man mano che mettiamo
+ * questo perche il riferimento in memoria relativo a quella chiave man mano che mettiamo
  * valori sulla stessa chiave viene sostituito
  */
 
@@ -75,7 +77,7 @@ console.log(converted);
 
 /**
  * vediamo come si itera nelle mappe. Si iterano esattamente come gli oggetti ma senza
- * il bisongo di convertire prima tramite Object.key o Object.values o Object.entries
+ * il bisongo di convertire prima tramite Object.key o Object.values o Object.entries dato che sono iterable
  */
 
 for (const el of converted) {
@@ -142,6 +144,9 @@ console.log(messaggio);
  * [true, 'correct !!'],
  * [false, 'try again'],
  * ]);
+ *
+ *
+ * basta usare lo spread operator
  */
 
 console.log(...question);

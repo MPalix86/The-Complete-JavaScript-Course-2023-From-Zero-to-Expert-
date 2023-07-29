@@ -1,7 +1,7 @@
 'use strict';
 /**
  * in javascript esistono altre 2 strutture dati oltre ad array  e oggetti e sono
- * sets e map !In questo file vediamo i sets
+ * sets e map ! In questo file vediamo i sets
  * i sets sono collezioni di valori univoci dove l'ordine non conta
  */
 
@@ -24,6 +24,7 @@ const set = new Set(menu);
 console.log(set);
 
 console.log(new Set('mirco'));
+
 // notare che per i set il numero di elementi si chiama size e non lenght come per gli array
 console.log(new Set('mirco').size);
 
@@ -50,6 +51,7 @@ for (const val of set) console.log(val);
  * a cosa potrebbero servire questi insiemi univoci ordinati ?
  * l'uso principale è rimuovere i valori duplicati in un array. Con i set è possibile
  * utilizzare lo spread operator
+ * inoltre i sets per elaborazioni su grandi quantita di dati sono moooooolto piu veloci
  */
 
 console.log(...set);

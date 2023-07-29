@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * un object literals è un ogettp scrittp a mano con tutti i campi nel codice
+ * un object literals è un ogettp scritto a mano con tutti i campi nel codice
  * ES6 ha introdotto 3 metodi nuovi che rendono piu facile scrivere questo tipo di oggetti
  */
 
@@ -30,7 +30,7 @@ const restaurant = {
   /**
    * prima di ES6 per mettere openingHours dentro questo oggetto :
    * openingHours : openingHours
-   * ora invece
+   * ora invece: e js fa tutto solo
    */
   openingHours,
 

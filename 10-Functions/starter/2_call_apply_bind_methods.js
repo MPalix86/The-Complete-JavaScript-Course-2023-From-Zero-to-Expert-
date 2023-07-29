@@ -17,9 +17,6 @@ const lufthansa = {
 lufthansa.book(239, 'Jonas Schmedtmann');
 lufthansa.book(635, 'John Smith');
 
-/**
- *
- */
 const eurowings = {
   airline: 'Eurowings',
   iataCode: 'EW',
@@ -27,28 +24,28 @@ const eurowings = {
 };
 
 /**
- * potrei pensare che poichè l'oggetto eurowings ha praticamente gli stessi campi di lufthansa,
- * e poiche lufthansa ha già un metodo book, di riciclare il metodo facendo come segue
+ * dato che gli oggetti eurowings e lufthansa sono uguali, perche definire nuovamente la funzione book quando è gia
+ * stata definita in lufthansa ? essendo le funzioni in js oggetti posso fare come segue per riciclarla !
  */
 const book = lufthansa.book;
 
 /**
- * ovviamente questo non puo funzionare perche ora in questo modo la funzione (che prima era un metodo) book salvata in una
+ * ovviamente questo non puo funzionare perche ora in questo modo la funzione (che prima era un metodo), salvata in una
  * variabile è diventata una semplice funzione appunto, e le funzioni semplici hanno "this" undefined se chiamte in un contesto globale!
- * quindi se proviamo ad eseguirla otteniamo ò'errore: cannot read properties of undefined
+ * quindi se proviamo ad eseguirla otteniamo l'errore: cannot read properties of undefined
  */
 // book(23, 'Sarah Williams');
 
 /**
  * quindi come facciamo a dire a javascript che vogliamo usare la funzione book ma con il contesto (this) di eurowings ?
- * dobbiamo, in maniera esplicita dire a js a cosa vogliamo che punti this e quando, per fare questo abbiamo ci sono 3
+ * dobbiamo, in maniera esplicita dire a js a cosa vogliamo che punti this e quando, per fare questo ci sono 3
  * funzioni call, apply e bind
  * bisogna tenere presente che funzioni sono solo oggetti e quindi hanno dei metodi. call, apply e bind sono metodi di funzioni
  */
 
 /**
  * usiamo call(arg1, ...others)
- * arg1 è prorio riferito a cosa vogliamo che this punti, glia altri argomenti sono argomenti della nostra funzione !
+ * arg1 è prorio riferito a cosa vogliamo che this punti, gli altri argomenti sono argomenti della nostra funzione !
  */
 book.call(eurowings, 239, 'mirco');
 book.call(lufthansa, 239, 'mirco palese');
@@ -73,7 +70,8 @@ const bookLU = book.bind(lufthansa);
 bookEW(239, 'mirco palese bind');
 
 /**
- * poiche bind acctta i paramtri come call possiamo fare molto di piu, possiamo creare addirittura un metodo per ogni singolo volo
+ * poiche bind acctta i paramtri come call e restituisce una nuova funzione possiamo fare molto di piu;
+ * possiamo addirittura creare  un metodo per ogni singolo volo
  */
 
 const bookEW23 = book.bind(eurowings, 239);
@@ -99,7 +97,8 @@ lufthansa.addPlane = function () {
 /**
  * se clicchiamo la funzione ritorna NaN  perche ?
  * abbiamo gia visto che quando si chiama un event handler, this è sempre uguale all'oggetto sul quale si istanzia l'handler
- * quindi in pratica prova a fare this.plane++ con this che contiene l'oggetto html ! che ovviamente non è un numero !
+ * quindi in pratica se si prova a fare this.plane++ nell'event handler, con this che contiene l'oggetto html che ovviamente non è un numero
+ * si avra NaN !
  */
 // document.querySelector('.buy').addEventListener('click', lufthansa.addPlane);
 

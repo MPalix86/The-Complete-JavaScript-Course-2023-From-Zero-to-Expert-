@@ -11,13 +11,14 @@ function booking(price, numGuets) {
 }
 
 /**
- * i parametri che non vengono specificate sarannno nella funzione undefined
+ se la funzione ha n parametri e noi ne passiamo n - x, non verra restituito nessun errore da js, semplicemente i restanti
+ parametri saranno undefined
  */
 booking(5);
 
 /**
- * sfruttando lo short circuiting e i falsy values possiamo risolvere facilemtne
- * tuttavia questo è il metodo pre ES6, ora possiamo fare di meglio
+ * sfruttando lo short circuiting e i falsy values possiamo risolvere facilemtne e assegnare valori di default nel caso alcuni parametri non dovessero
+ * essere definiti, tuttavia questo è il metodo pre ES6, ora possiamo fare di meglio
  */
 function booking(price, numGuets) {
   numGuets = numGuets || 1;
@@ -26,13 +27,12 @@ function booking(price, numGuets) {
     numGuets,
   };
   bookings.push(obj);
-}
 
 console.log(bookings);
 
 /**
  * da ES6 in poi possiamo dare dei valori di default direttamente quando dichiariamo i
- * parametri all'interno della funzione, e possiamo anche mixarli tra di loro solo se quelli
+ * parametri all'interno della funzione, e possiamo anche mixarli tra di loro, ma solo solo se quelli
  * che ci servono sono stati diciarati prima
  */
 function booking(price = 100, numGuets = 5, totalPrice = price * numGuets) {
@@ -53,18 +53,20 @@ console.log(bookings);
 
 /**
  * first class and higher order functions
+ * 
  * first class functions:
- *  first class functions significa che le funzioni sono trattate esattamente come un valore.
- *  In particolare in js le funzioni sono oggetti questo comporta una serie di conseguenze interessanti :
- *  per esempio le funzioni hanno delle proprietà (come nome arguments ecc).
- *  possiamo salvarle in delle variabili o le possiamo passare come argomento di altre funzioni,
- *  possiamo anche tornare funzioni da dentro altre funzioni.
- *  Inoltre poiche le funzioni in js sono oggetti e gli oggetti possono avere metodi, anche delle funzioni possono
- *  avere dei metodi . possiamo inoltre chiamare funzioni che agiscono su altre funzioni
- *  higher order functions :
- *  sono funzioni che ricevono come argomenti altre funzioni o funzioni che ritornano altre funzioni.
- *  le higher class function possono esistere solo perche esistono le first class function ( ovvero perche le funzioni sono
- *  trattate come argomenti)
+ *  - first class functions significa che le funzioni sono trattate esattamente come un valore.
+ *      In particolare in js le funzioni sono oggetti e questo comporta una serie di conseguenze interessanti :
+ *      - le funzioni hanno delle proprietà (come nome arguments ecc).
+ *      - possiamo salvarle in delle variabili o le possiamo passare come argomento di altre funzioni,
+ *      - possiamo anche tornare funzioni da dentro altre funzioni.
+ *      - Inoltre poiche le funzioni in js sono oggetti e gli oggetti possono avere metodi, anche delle funzioni possono
+ *        avere dei metodi . 
+ *      - possiamo inoltre chiamare funzioni che agiscono su altre funzioni
+ *  - higher order functions :
+ *    sono funzioni che ricevono come argomenti altre funzioni o funzioni che ritornano altre funzioni.
+ *    le higher order function possono esistere solo perche esistono le first class function ( ovvero perche le funzioni sono
+ *    trattate come argomenti)
  *
  * vediamo in pratica come funzionano le higher order functions e come crearle
  */
@@ -87,7 +89,6 @@ higherLevelf(f1, 'ciao');
 /**
  * funzioni che ritornano funzioni
  */
-
 const greet = function (greeting) {
   const person = function (name) {
     console.log(`${greeting} ${name}`);
@@ -104,7 +105,7 @@ greet('hey');
 /**
  * da notare che greet verra salvato con tutto il parametro !
  * ma come fa a funzionare e a salvare il parametro della funzione precedente ?
- * è grazie a qualcosa chiamto closure
+ * è grazie a qualcosa chiamto closure che vedremo piu avanti
  */
 const greeter = greet('hey');
 console.log(greeter);
@@ -129,4 +130,4 @@ greeterArrow('mirco');
  * oppure cosi
  */
 const newGreeterArrow = greet => name => console.log(`${greet} ${name}`);
-newGreeterArrow('hey')('mirco');
+newGreeterArrow('hey')('mirco')

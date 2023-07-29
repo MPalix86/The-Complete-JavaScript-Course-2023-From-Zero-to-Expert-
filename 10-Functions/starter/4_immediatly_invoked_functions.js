@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * qualche volta in javascript abbiamo bisongo di una funzione che viene eseguita solo e soltanto una volta
- * per ora questo potrebbe sembrare non avere senso, ma piu in la ci servira per le cose aync and await
- * possiamo definire la funzione ed eseguirla una sola volta !
+ * qualche volta in javascript abbiamo bisongo di una funzione che viene eseguita solo e soltanto una volta.
+ * ora questo potrebbe sembrare non avere senso, ma piu in la ci servira per le cose async and await !
+ *
+ * molto banalmente possiamo definire la funzione ed eseguirla una sola volta !
  */
 
 function runOnce() {
@@ -14,7 +15,7 @@ runOnce();
 /**
  * tuttavia niente ci impedisce di poterla riscrivere e rieseguire anche per errore.
  * per far si che una funzione venga dichiarata ed eseguita nello stesso momento senza pero essere
- * salvata per eventuali esecuzioni future facciamo :
+ * salvata per eventuali esecuzioni future facciamo si usa il seguente pattern :
  */
 
 (function () {
@@ -22,11 +23,11 @@ runOnce();
 })();
 
 /**
- * notare le parentesi aperte e chiuse alla fine, senza infatti la funzione non verra eseguita.
- * questo pattern è chiamo the immediatly invoke function expression.
+ * notare le parentesi () aperte e chiuse alla fine, senza, infatti, la funzione non verra eseguita.
+ * questo pattern è chiamo the immediatly invoke function expression (IIFE).
  * lo stesso funziona per una arrow function.
  * Ma a cosa serve questo pattern ?
- * Sappiamo che le funzioni creano uno contesto (scope (non si sta parlando di this))
+ * Sappiamo che le funzioni creano uno contesto (scope (non si sta parlando di solo di this)).
  * e uno scope non puo accedere alle variabili di un inner scope
  * per esempio
  */
@@ -39,9 +40,11 @@ runOnce();
 // console.log(test) dara errore
 
 /**
- * all'esterno della funzione non avro accesso alla variabile test
+ * all'esterno della funzione non avro accesso alla variabile test che è all'interno di un'inner scope rispetto allo scope globale .
+ *
  * cos' altro crea uno scope ?
- * let e const dichiarate in un blocco di codice creano uno scope a parte, cosa che non vale per var !!
+ * let e const dichiarate in un blocco di codice creano uno scope a parte, cosa che non vale per var che crea uno scoop, ricordiamo, solo quando
+ * dichiarata all'interno di una funzione e non di un blocco !
  */
 
 {

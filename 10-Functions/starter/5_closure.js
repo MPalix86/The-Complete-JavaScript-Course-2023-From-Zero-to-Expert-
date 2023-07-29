@@ -5,7 +5,8 @@
  *
  * ogni funzione ha uno scope che viene caricato nello stack al momento dell'esecuzione,
  * si inizia con lo scoope globale (che è l'unico sempre presente nello stack) e man mano che
- * aggiungiamo funzioni lo il loro scope si aggiunge allo stack
+ * aggiungiamo funzioni lo il loro scope si aggiunge allo stack, ad esempio quando avviamo un programma abbiamo solo
+ * il global scope.
  *
  *              STACK
  *    |------------------------|
@@ -92,14 +93,14 @@ const booker = secureBooking(); // eseguiamo la funzione
  *    |   - booker             |
  *    |------------------------|
  *
- * dove si è aggiunta la variabile booker al global scope che conterra la funzione ritornata da secureBooking()
+ * dove si è aggiunta la variabile booker allo scope globale che conterra la funzione ritornata da secureBooking()
  * ora analizziamo nel dettaglio la funzione booker() !
  *
- * booker() (che ora è nel globa scope) prende una variabile (passengerCount) presente nello scope della funzione secureBooking()
+ * booker() (che ora è nel global scope) prende una variabile (passengerCount) presente nello scope della funzione secureBooking()
  * che pero è gia stata eseguita, e quindi il suo scope è gia stato eliminato, e la incrementa di 1 !
  * è impossibile !! se dovessimo provare ad eseguire il tutto sicuramente js ci dara qualche errore, vero ?
  *
- * ammettiamo pero che lo scope di secureBooking() sia ancora nello stack; ormai booker è nel
+ * facciamo finta pero che lo scope di secureBooking() sia ancora nello stack; ormai booker è nel
  * global scope e comunque non avrebbe accesso alla variabile (passengerCounter) che sarebbe nello scope
  * di securBooking(), perche ricordiamo secureBokking() puo accedere al global scope ma non viceversa !
  *
@@ -127,16 +128,15 @@ booker(); // passngerCount = 3
  * di secureBooking anche se questa è gia stata eseguita ed eliminata dallo stack !
  *
  * in altre parole possiamo dire che grazie alla closure le funzioni non perdono mai la connessione con le variabili che esistevano
- * nello scope a cui avevano accesso nel momento in cui sono state dichiarate.
+ * nello scope a cui avevano accesso, nel momento in cui sono state dichiarate.
  *
  * vediamo ora piu nel dettaglio come funziona la closure !
  *  - booker prova ad incrementare la variabile passengerCount, tuttavia non la trova in quanto lo scope di secureBooking() è
  *    stato rimosso, dato che la funzione è gia stata eseguita !
- *  - a questo punto js guarda nella closure e trova la variabile che cercava. e fa questo ANCORA PRIMA DI GUARDARE NELLA CATENA
- *    DEGLI SCOPE, infatti nessuno vieta di dichiarare un'altra variabile con lo stesso nome (passengerCount) nello scope
- *    globale subito prima di chiamare booker().
+ *  - a questo punto js guarda nella closure (che è letteralmente una variabile nell'oggetto funzione) e trova la variabile che cercava. e fa questo ANCORA PRIMA DI GUARDARE NELLA CATENA
+ *    DEGLI SCOPE, infatti nessuno vieta di dichiarare un'altra variabile con lo stesso nome (passengerCount) nello scope globale subito prima di chiamare booker().
  *    in questo modo anche se ci fosse un'altra variabile con lo stesso nome nello scope globale, js andrebbe
- *    a prendere prima sempre quella nella closure
+ *    a prendere prima sempre quella nella closure evitando cosi bug incredibili.
  *
  *    A questo punto vediamo come si fa a vedere dentro una funzione proprio come se fosse un'oggetto !
  */
@@ -145,7 +145,7 @@ console.dir(booker);
 
 /**
  * la fuinzione console.dir() stampa quello che è contenuto nella funzione ( le funzioni sono come variabili in js )
- * ed è possibile vedere che nell'aray chiamata scopes ci sono 3 elementi:
+ * ed è possibile vedere che nell'aray chiamato scopes ci sono 3 elementi:
  *
  * - Closure
  * - Script

@@ -1,10 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
-// Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -61,14 +56,50 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
 
-/////////////////////////////////////////////////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const displayMovements = function ({ movements }) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    console.log(mov);
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+        <div class="movements__value">${mov}</div>
+      </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+
+  /**
+   * questo metodo acceta 2 argomenti, il primo e la stringa che dice in che posizione
+   * vogliamo inserire l'elemento. il secondo è la stringa html
+   */
+};
+
+const createUsers = function (accounts) {
+  accounts.forEach((user, i) => {
+    user.username = user.owner // prendo nome e cognome (stringa)
+      .tolowerCase() // la faccio minuscola (ritorna una stringa)
+      .split(' ') // la separo in un array contennente nome e cognome (ritorna un a'array)
+      .map(name => name[0]) // mappo l'array e per ogni elemento prendo l'iniziale ( ritorna un nuovo array)
+      .join(''); // unisco l'array in una sola stringa
+    //  infine metto tutto nella proprieta username
+  });
+};
+
+displayMovements(account1);
+createUsers(accounts);
+
+accounts.forEach(el => console.log(el.username));

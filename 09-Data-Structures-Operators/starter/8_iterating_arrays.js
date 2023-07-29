@@ -35,5 +35,6 @@ console.log(...array.entries());
 // ora che sappiamo cosa fa il metodo entries
 for (const item of array.entries()) console.log(`${item[0] + 1}  : ${item[1]}`);
 
-// ora che sappiamo cos'è entries e che conosciamo il destructuring possiamo fare :
+// ma dati che sappiamo cosa fa .entries() ( ovvero ci per ogni  elemento dell'array ritorna un nuovo array contenente l'indice e l'elemento effettivo)
+// e che conosciamo il destructuring possiamo fare :
 for (const [i, el] of array.entries()) console.log(`${i + 1} : ${el}`);
