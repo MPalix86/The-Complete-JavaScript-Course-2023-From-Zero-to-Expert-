@@ -16,15 +16,15 @@ const settimana = {
 
 /**
  * immaginiamo di ricevere oggetti da alcune api e ci sono alcuni campi non obbligatori
- * come ad esempio il tempo, che dentro mer non c'è
+ * come ad esempio il nome, che dentro mer non c'è
  * per verificare possiamo fare :
  *
  */
 
-// console.log(settimana.mer.tempo);
+// console.log(settimana.mer.nome);
 
 /**
- * console.log(settimana.mer.tempo);
+ * console.log(settimana.mer.nome);
  * in questa linea di codice cosa succede ?
  * 1) si accede all'oggetto settimana che esiste
  * 2) si accede all'oggetto mar che non esiste, tuttavia, il compilatore non ritorna errore perche quando un oggetto
@@ -38,7 +38,7 @@ if (settimana.mar && settimana.tempo) console.log(settimana.mar.tempo);
 
 /**
  * questo rende pero il codice brutto e messy (immagina di avere decine di proprieta indentate da controllare)
- * a questo punto dovrei scrivere per ogni proprieta 2-3 if indentati uno dentro l'altro per verificare tutto.
+ * a questo punto dovrei scrivere per ogni proprieta 2-3 if indentati uno dentro l'altro per verificare tutto .
  * ecco quindi che possiamo usare l'optional chaining operator ?.
  * questo operatore è stato introdotto in ES2020
  * questo operatore semplicemente ritorna undefined appena trova il primo valore undefined e blocca tutte le operazioni successive

@@ -51,7 +51,7 @@ const restaurant = {
 // scopriamop che ha le seguenti proprietà
 // {window: Window, self : Window, document:document, name = '',location = Location}
 // e probabilemtne sono dichiarate come const quindi quello che sto facendo di fatto è provare a
-// riassegnare quelle variabili e quindi il compilatore da errore !
+// riassegnare quelle variabili e quindi il compilatore da errore!
 
 console.log(this);
 

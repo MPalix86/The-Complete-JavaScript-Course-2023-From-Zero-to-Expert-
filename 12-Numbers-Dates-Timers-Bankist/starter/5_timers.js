@@ -14,7 +14,7 @@ console.log('test');
 
 /**
  * e se volessi passare un argomento alla callback?
- * tutti glia rgomenti che passo dopo il delay time saranno argomenti della
+ * tutti gli argomenti che passo dopo il delay time saranno argomenti della
  * mia callback
  */
 

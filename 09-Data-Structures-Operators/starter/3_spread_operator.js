@@ -6,8 +6,8 @@ const badNewArr = [5, 6, arr[0], arr[1], arr[2]];
 console.log(...arr);
 console.log(arr);
 
-// è possibile notare inoltre che lo spread operator è simile al destructuring, la grande differenza è che lo spread operator
-// toglie tutti gli elementi dagll'array e inoltre NON crea nuove variabili
+// è possibile notare inoltre che lo spread operator potrebbe sembrare simile al destructuring, la grande differenza è che lo spread operator
+// toglie tutti gli elementi dall'array e inoltre NON crea nuove variabili
 const newArr = [1, 2, ...arr];
 console.log(newArr);
 
@@ -21,7 +21,7 @@ const mergeArray = [...arr, ...arrayCopy];
 
 // in realta lo spread operator funziona su ogni elemento Iterable
 // Iterables : arrays, string, maps, sets. sugli oggetti funziona a partire dal 2018 ma bisogna ricordare che gli oggetti
-// gli oggetti NON sono Iterable ( spooler proprio per questo sono state introdotte le mappe che vedremo dopo)
+// NON sono Iterable ( spooler proprio per questo sono state introdotte le mappe che vedremo dopo)
 const firstName = 'mirco';
 const mircoLetters = [...firstName];
 console.log(mircoLetters);
@@ -45,7 +45,7 @@ const restaurant = {
   menu: ['pasta', 'pizza', 'cacca', 'pastaschifosa'],
 };
 
-// copia superficialmente tutte le proprieta dell'oggetto nel nuovo oggetto
+// copia superficialmente tutte le proprieta dell'oggetto nel nuovo oggetto + aggiunta di una nuova proprieta
 const newRestaurant = { founded: 1898, ...restaurant };
 restaurant.menu = restaurant.menu.push('pipi');
 console.log(newRestaurant);

@@ -9,11 +9,11 @@ const passTest = true;
  * adessoc scrivero hasDriversLicense ma senza la s di drivers in questo modo
  * sto dichiarando una nuova variabile
  */
-if (passTest) hasDriverLicense = true;
+if (passTest) hasDriverLicense_ = true;
 
 /**
  * con la strict mode attiva mi viene restituito un errore riguardo al fatto che la
- * variabile senza la s non esiste.
+ * variabile con il _ non esiste.
  *
  * senza la strict mode invece quella verrebbe interpretata come un'assegnazione del
  * tutto lecita portando cosi ad un errore

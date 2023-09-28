@@ -20,11 +20,11 @@ const restaurant = {
 
 // prima dell'uguale sto aggregando tutto in ...othersFood,
 // dopo l'uguale sto separando gli arry in elementi singoli e li sto mettendo in un nuovo
-// array che è il merge degli array precedenti.
+// array o delle variabili o quello che si vuole fare.
 // il rest operator deve sempre essere l'ultimo nell'array altrimenti js da errore
-const [pizza, risotto, ...othersfood] = [
-  ...restaurant.menuPrimi,
-  ...restaurant.menuPizze,
+const [pizza, risotto, ...othersfood /** rest operator */] = [
+  ...restaurant.menuPrimi /** spread operator */,
+  ...restaurant.menuPizze /** spread operator */,
 ];
 console.log(pizza, risotto, othersfood);
 
@@ -44,7 +44,9 @@ add(1, 2, 3, 4, 5);
 add(1, 2, 3, 4, 5, 6);
 
 // notare la differenza:
-// invoco la funzione con lo spread operator, i 3 puntini hanno significato opposto
+// Se invoco la funzione con lo spread operator, i 3 puntini hanno significato opposto.
+// quindi per quanto riguarda le funzioni se trovo ... nella dichiarazione il rest operator, se li trovo nell'invocazione è lo spread
+// ( appunto personale: non mi sembra molto furbo fare 2 cose opposte, anche se collegate con lo stesso operatore.  )
 const numbers = [1, 2, 3, 4, 5, 6];
 
 // in questo caso i 3 punti sono lo spread operator che separa i singoli valori che poi successivamente verranno riaggregati perche nella

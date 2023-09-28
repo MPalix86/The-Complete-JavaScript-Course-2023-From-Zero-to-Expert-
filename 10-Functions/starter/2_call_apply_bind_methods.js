@@ -95,7 +95,7 @@ lufthansa.addPlane = function () {
 };
 
 /**
- * se clicchiamo la funzione ritorna NaN  perche ?
+ * se clicchiamo, la funzione ritorna NaN  perche ?
  * abbiamo gia visto che quando si chiama un event handler, this è sempre uguale all'oggetto sul quale si istanzia l'handler
  * quindi in pratica se si prova a fare this.plane++ nell'event handler, con this che contiene l'oggetto html che ovviamente non è un numero
  * si avra NaN !

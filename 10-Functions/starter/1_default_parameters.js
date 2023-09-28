@@ -60,7 +60,7 @@ console.log(bookings);
  *      - le funzioni hanno delle proprietà (come nome arguments ecc).
  *      - possiamo salvarle in delle variabili o le possiamo passare come argomento di altre funzioni,
  *      - possiamo anche tornare funzioni da dentro altre funzioni.
- *      - Inoltre poiche le funzioni in js sono oggetti e gli oggetti possono avere metodi, anche delle funzioni possono
+ *      - Inoltre poiche le funzioni in js sono oggetti e gli oggetti possono avere metodi, anche le funzioni possono
  *        avere dei metodi . 
  *      - possiamo inoltre chiamare funzioni che agiscono su altre funzioni
  *  - higher order functions :
@@ -95,6 +95,7 @@ const greet = function (greeting) {
   };
   return person;
 };
+
 /**
  * questa funzione se eseguita non stampa niente a terminale perche ?
  * perche questa funzione non sta e seguendo la funzione person ma la sta solo ritornando

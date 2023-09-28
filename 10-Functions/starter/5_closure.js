@@ -5,7 +5,7 @@
  *
  * ogni funzione ha uno scope che viene caricato nello stack al momento dell'esecuzione,
  * si inizia con lo scoope globale (che è l'unico sempre presente nello stack) e man mano che
- * aggiungiamo funzioni lo il loro scope si aggiunge allo stack, ad esempio quando avviamo un programma abbiamo solo
+ * aggiungiamo funzioni il loro scope si aggiunge allo stack, ad esempio quando avviamo un programma abbiamo solo
  * il global scope.
  *
  *              STACK
@@ -102,7 +102,7 @@ const booker = secureBooking(); // eseguiamo la funzione
  *
  * facciamo finta pero che lo scope di secureBooking() sia ancora nello stack; ormai booker è nel
  * global scope e comunque non avrebbe accesso alla variabile (passengerCounter) che sarebbe nello scope
- * di securBooking(), perche ricordiamo secureBokking() puo accedere al global scope ma non viceversa !
+ * di securBooking(), perche ricordiamo che secureBokking() puo accedere al global scope ma non viceversa !
  *
  * ESEGUIAMO e vedainmo che esce !
  */
@@ -121,7 +121,7 @@ booker(); // passngerCount = 3
  *
  * **************************************CLOSURE
  * tutte le fuznioni hanno sempre accesso alle variabili di ambiente del contesto di esecuzione (scope) nel quale sono
- * state creata
+ * state create
  * *********************************************
  *
  * nel caso di booker(), è stata creata nel contesto di secureBooking(), quindi riuscira ancora ad accedere alle varibili

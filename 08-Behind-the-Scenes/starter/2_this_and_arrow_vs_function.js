@@ -29,6 +29,7 @@ calcAge();
  * circostante in cui sono state definite. Nel caso specifico dell'esempio fornito, l'arrow function calcAgeArrow()
  * utilizza il valore di this del contesto globale. Quindi, this all'interno della funzione calcAgeArrow rappresenterà l
  * 'oggetto globale (window nell'ambiente del browser o global nell'ambiente di Node.js) anche se si usa use strict !
+ * detto cosi la differenza tra funzioni normali e arrow function potrebbe sembrare poca, ma in realta è tanta lo vedremo dopo.
  */
 const calcAgeArrow = birthDate => {
   console.log('calcAgeArrow', this);
@@ -60,7 +61,7 @@ mirco.calcAge();
 
 /**
  * dentro test invece che è una semplice variabile di primo livello all'interno dell'oggetto mirco ci sara il this ereditato dallo scope in cui
- * l'oggetto è immerso. in questo caso lo scope globale e quindi this sara uguale a windows o global.
+ * l'oggetto è immerso. in questo caso lo scope globale e quindi this sara uguale a windows o global(per node).
  */
 console.log('mirco test', mirco.test);
 
@@ -86,13 +87,13 @@ const f = mirco.calcAge;
 // f();
 
 // vediamo ora meglio le differenze tra arrow functions e funzioni normali
-// le arrow functions invece non ottengono mai un loro this ma ereditano sempre il this del contesto dentro il quale si trovano durante la definizione
+// le arrow functions non ottengono mai un loro this ma ereditano sempre il this del contesto dentro il quale si trovano durante la definizione
 // della funzione o del metodo !
 const mirco1 = {
   year: 1995,
   name: mirco,
 
-  // poiche per chiamare calcAge devo necessariamente usare mirco1.calcAge() e poiche calcAge è una metodo
+  // poiche per chiamare calcAge devo necessariamente usare mirco1.calcAge() e poiche calcAge è un metodo
   // normale (non arrow) , this, dentro calcAge ritornerà l'oggetto che la sta chiamando, ovvero mirco1
   calcAge: function () {
     console.log(this);
@@ -112,10 +113,10 @@ mirco1.greet();
  * Le variabili dichiarate con var non hanno uno scope di blocco come le variabili let e const. Al contrario, le variabili var hanno
  * uno scope di funzione o uno scope globale se dichiarate al di fuori di qualsiasi funzione. Quindi, se una variabile viene dichiarata con var all'interno
  * di una funzione, la sua visibilità sarà limitata a quella specifica funzione, ma sarà accessibile da qualsiasi parte della funzione.
- * Allo stesso modo, se viene dichiarata al di fuori di qualsiasi funzione, la variabile avrà uno scope globale e sarà accessibile da qualsiasi parte del
- * codice.
- *
+ * Allo stesso modo.
  * ma cosa significa scope di blocco ? un blocco è in generale qualcosa delimitato da partentesi graffe
+ * questo significa che se dichiaro una variabile con let all'interno di un if a sua volta dentro una funzione, quella variabile sara visibile solo all'iinterno dell'if;
+ * se lo facico con var (che non ha uno scope di blocco), la variabile sara visibile in tutta la funzione
  */
 
 {
@@ -148,12 +149,13 @@ const mirco2 = {
   // in questo caso anche ma con una differenza: infatti abbiamo dichiarato una var (firstname) che è andata a finire all'interno
   // del contesto globale che è window
   // la arrow function in questo caso eredita dentro this  proprio il contesto nel quale è immersa (ovvero window)
+  // questo puo causare bug assurdi ! Un altro motivo per non usare var ma uasare let con la strict mode
   greet: () => {
     console.log(`hey ${this.firstName}`);
   },
 };
 
-// chiamando mirco2.greet otterrò ciao gloria wtf ! e questo perche per caso abbiamo chiamato una varibile firstname
+// chiamando mirco2.greet otterrò ciao gloria, wtf ! Questo perche abbiamo chiamato una varibile firstname
 // che è andata a finire dentro window poiche dichiarata con var. questo comportamento può portare a bug assurdi e
 // molto difficili da trovare ! mai usare var !!!
 // un'altro insegnamento che potremmo trarre da questo pezzo di codice è che non bisognerebbe mai usare una
@@ -222,7 +224,7 @@ const mirco5 = {
 mirco5.calcAge();
 
 // le funzioni quando vengono chiamate oltre ad ottenere l'oggetto this, ottengono l'oggetto arguments che contiene
-// tutti gliargomenti passati alla funzione stessa.
+// tutti gli argomenti passati alla funzione stessa.
 // questo significa che posso anche passare n argomenti nonostante ne abbia dichiarati solo 2, e avere accesso a quegli
 // argomenti tramite arguments che ovviamente non avranno nome
 function addExpr(a, b) {

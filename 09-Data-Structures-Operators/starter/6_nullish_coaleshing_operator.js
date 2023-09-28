@@ -1,11 +1,12 @@
 'use strict';
-// il nullish coaleshing operator ha la stessa identica idea dello short circuiting per quanto riguarda l'OR
+// il nullish coaleshing operator ha la stessa identica idea dello short circuiting per quanto riguarda l'OR o l'AND
 // ma con la differenza che non ragiona con i falsy values ma con i nullish values
 
 let minimoNumero = 0;
 // quello che volgio è se esiste un numero minimo prendilo altrimenti te lo do io
+
 console.log(minimoNumero || 10);
-// il risultato è 10 anche se zero è assolutamente accettabile
+// il risultato è 10 anche se zero è assolutamente accettabile ( ma è considerato un falsy values)
 // ecco quindi il ?? operator che non controlla se i valori sono falsi o veri ma se sono null o undefined
 // in sostanza con ?? possiamo usare 0 e ''
 console.log(minimoNumero ?? 10);

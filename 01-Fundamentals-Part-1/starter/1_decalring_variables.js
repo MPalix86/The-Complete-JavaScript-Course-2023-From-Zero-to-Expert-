@@ -6,13 +6,13 @@ let js = 'bella';
 const somevar; 
 /** 
  * infatti dichiarare una variabile senza assegnare nessun valore significa assegnare il valore undefined
- * e poiche è una const questo valore non potrebbe essere cambiato
+ * e poiche è una const questo valore non potrebbe essere cambiato durante l'esecuzione
  */
 
 
 // questo è il modo di dichiarare variabili prima del moderno javascript(prima ECMASCRIPT 6)
 /** 
- * ES6 è uscito nele 2015 ed ha stravolto js, tutte le scose scritte prima di ES6 ci sono ancora nel moderno js, ma
+ * ES6 è uscito nel 2015 ed ha stravolto js, tutte le scose scritte prima di ES6 ci sono ancora nel moderno js, ma
  * dove possibile non adrebbero utilizzate, vengono mantenute per retrocompatibilità. Infatti js è retrocompatibile fino
  * alla sua prima versione. 
  * In particolare questo tipo di assegnazione andrebbe totalmente ignorato in favore di const e let introdotti

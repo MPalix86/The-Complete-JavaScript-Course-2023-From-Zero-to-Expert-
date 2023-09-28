@@ -3,7 +3,7 @@
 /**
  * MAP
  *
- * map è molto simimile al foreach con la differenza che crea un nuovo array, ovvero per ogni applica la funzione che specifichiamo
+ * map è molto simimile al foreach con la differenza che crea un nuovo array, ovvero per ogni elemento applica la funzione che specifichiamo
  * (come nel foreach ) ma mappa il risultato in un nuovo array
  *
  * vogliamo convertre glie elemnti da euro in dollari

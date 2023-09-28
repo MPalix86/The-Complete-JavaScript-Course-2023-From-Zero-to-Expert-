@@ -1,14 +1,14 @@
 'use strict';
 
 /**
- * In altre parole, la variabile age punta all'indirizzo di memoria in cui è memorizzat 30
+ * La variabile age punta all'indirizzo di memoria in cui è memorizzat 30
  * Ogni volta che utilizzi la variabile age, JavaScript accede all'indirizzo di memoria per recuperare il valore corrispondente.
  * inoltre per i dati primitivi ogni volta che si inizializza una nuova variabile viene create un nuovo spazio di memoria
  */
 let age = 30;
 
 /**
- * oldAge e age puntano allo stesso indirizzo di memoria iniziale perché stai assegnando il valore di age a oldAge.
+ * oldAge e age puntano allo stesso indirizzo di memoria iniziale 
  * Quindi, inizialmente, entrambe le variabili condivideranno lo stesso valore e lo stesso indirizzo di memoria.
  * Tuttavia, quando viene eseguita l'assegnazione successiva age = 31;, viene creato un nuovo spazio di memoria per memorizzare il nuovo valore 31,
  * e la variabile age viene aggiornata per puntare a questo nuovo indirizzo di memoria. Allo stesso tempo, la variabile oldAge mantiene ancora il suo
@@ -54,7 +54,7 @@ console.log(savedMirco);
  * per assegnare un nuovo spazio di memoria : dobbiamo usare Object.assign(); che crea una copia superficiale dell'oggetto passato come argoomento:
  *
  * cos'è una copia superficiale ?
- * una copia suèerficiale significa che solo il primo livello dell'oggetto viene duplicato in un nuovo spazio di memoria, gli oggetti contenuti
+ * una copia superficiale significa che solo il primo livello dell'oggetto viene duplicato in un nuovo spazio di memoria, gli oggetti contenuti
  * al'interno dell'oggetto iniziale verranno passati alla copia sempre tramite indirizzo. questo significa che modificando un sotto-oggetto nella copia
  * verra modificato anche l'oggetto originale. ma modificando una variabile semplice nel primo livello dell'oggetto, la modifica non si propaghera alle copie. !
  */
