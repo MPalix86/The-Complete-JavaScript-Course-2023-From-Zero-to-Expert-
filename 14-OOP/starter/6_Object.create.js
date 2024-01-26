@@ -58,8 +58,8 @@ Person.prototype.saluta = function () {
  */
 
 /**
- * per abbinare il this alla funzione usiamo la funzione "call" che ci permette come primo parametro
- * di abbinare a this un oggetto
+ * per abbinare il this alla funzione usiamo la funzione "call" che ci permette di passare come primo parametro
+ * un oggetto da abbinare a this
  */
 const Student = function (name, voto) {
   Person.call(this, name);
@@ -181,4 +181,6 @@ console.log("luca.__proto__.__proto__ == Person.prototype ", luca.__proto__.__pr
  *
  *
  * ovviamente con le classi ES6 funziona tutto uguale ma cambia solo la sintassi
+ * che è molto piu simile a quello che gia conosciamo da java ecc...
+ * da notare tuttavia che è solo la sintassi che cambia tutto qeullo che abbiamo spiegato qui rimane vero !
  */
